@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FizzBuzz Program</title>
+  </head>
+  <body>
+    <h1>Get a FizzBuzz Result!</h1>
+    <p>Type a number:</p>
+    <input type="number" id="inputNumber">
+    <button onclick="fizzBuzz()">Click Here!</button>
+    <hr>
+    <p id="result"></p>
+
+    <script>
+      function fizzBuzz() {
+        // get input value
+        var num = document.getElementById("inputNumber").value;
+
+        // check if input is valid
+        if (num <= 0 || isNaN(num)) {
+          document.getElementById("result").innerHTML = "Invalid input!";
+          return;
+        }
+
+        // check if input is a multiple of 3 and/or 5
+        if (num % 3 === 0 && num % 5 === 0) {
+          document.getElementById("result").innerHTML = "FizzBuzz!";
+        } else if (num % 3 === 0) {
+          document.getElementById("result").innerHTML = "Fizz!";
+        } else if (num % 5 === 0) {
+          document.getElementById("result").innerHTML = "Buzz!";
+        } else {
+          document.getElementById("result").innerHTML = num;
+        }
+      }
+    </script>
+  </body>
+</html>
