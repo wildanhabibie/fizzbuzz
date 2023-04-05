@@ -10,29 +10,39 @@
     <button onclick="fizzBuzz()">Click Here!</button>
     <hr>
     <p id="result"></p>
-
     <script>
-      function fizzBuzz() {
-        // get input value
-        var num = document.getElementById("inputNumber").value;
+  function fizzBuzz() {
+    // get input value
+    var num = document.getElementById("inputNumber").value;
 
-        // check if input is valid
-        if (num <= 0 || isNaN(num)) {
-          document.getElementById("result").innerHTML = "Invalid input!";
-          return;
-        }
+    // check if input is valid
+    if (num <= 0 || isNaN(num)) {
+      document.getElementById("result").innerHTML = "Invalid input!";
+      document.getElementById("result").style.color = "red";
+      return;
+    }
 
-        // check if input is a multiple of 3 and/or 5
-        if (num % 3 === 0 && num % 5 === 0) {
-          document.getElementById("result").innerHTML = "FizzBuzz!";
-        } else if (num % 3 === 0) {
-          document.getElementById("result").innerHTML = "Fizz!";
-        } else if (num % 5 === 0) {
-          document.getElementById("result").innerHTML = "Buzz!";
-        } else {
-          document.getElementById("result").innerHTML = num;
-        }
+    // initialize output array
+    var output = [];
+
+    // check each number up to input value
+    for (var i = 1; i <= num; i++) {
+      // check if current number is a multiple of 3 and/or 5
+      if (i % 3 === 0 && i % 5 === 0) {
+        output.push("FizzBuzz!");
+      } else if (i % 3 === 0) {
+        output.push("Fizz!");
+      } else if (i % 5 === 0) {
+        output.push("Buzz!");
+      } else {
+        output.push(i);
       }
-    </script>
-  </body>
+    }
+
+    // output results in order
+    document.getElementById("result").innerHTML = output.join("<br>");
+    document.getElementById("result").style.color = "black";
+  }
+</script>
+</body>
 </html>
